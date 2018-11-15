@@ -94,20 +94,20 @@ class ApacheConfigurator(augeas_configurator.AugeasConfigurator):
     description = "Apache Web Server plugin - Beta"
 
     OS_DEFAULTS = dict(
-        server_root="/etc/apache2",
-        vhost_root="/etc/apache2/sites-available",
+        server_root="/usr/local/apache",
+        vhost_root="/data/www/virtual_host_names",
         vhost_files="*",
-        logs_root="/var/log/apache2",
+        logs_root="/data/wwwlog/virtual_host_names",
         ctl="apache2ctl",
-        version_cmd=['apache2ctl', '-v'],
-        restart_cmd=['apache2ctl', 'graceful'],
-        conftest_cmd=['apache2ctl', 'configtest'],
+        version_cmd=['httpd', '-v'],
+        restart_cmd=['httpd', 'graceful'],
+        conftest_cmd=['httpd', 'configtest'],
         enmod=None,
         dismod=None,
         le_vhost_ext="-le-ssl.conf",
         handle_modules=False,
         handle_sites=False,
-        challenge_location="/etc/apache2",
+        challenge_location="/usr/local/apache",
         MOD_SSL_CONF_SRC=pkg_resources.resource_filename(
             "certbot_apache", "options-ssl-apache.conf")
     )
